@@ -9,11 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            Text("hi")
+                .badge(2)
+                .tabItem {
+                    Label("Your Gallery", systemImage: "photo")
+                }
+            Text("f")
+                .tabItem {
+                    Label("Create and Gift Badges", systemImage: "tray.and.arrow.up.fill")
+                }
+            Profile()
+                .badge("!")
+                .tabItem {
+                    Label("Profile", systemImage: "person.crop.circle.fill")
+                }
         }
     }
 }
