@@ -6,7 +6,7 @@ from db_generic_util import *
 # now working
 # now we want writing and inserting and deleting and getting methods for badge
 def get_badges(screenName):
-    return get_items_where(get_condition('devpostScreenName', screenName))
+    return get_items_where(get_condition('devpostScreenName', screenName),table_name='badges')
     
 def insert_badge(items, commit=True):
     if not type(items) is list: return
@@ -49,7 +49,7 @@ def main():
     update_badge('testurl',description='somedesc')
     print(get_badges('testname'))
     cancel('testurl')
-    print(get_badges('testname'))
+    print(get_badges('bl3321'))
     
 
 # main()

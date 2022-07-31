@@ -42,4 +42,5 @@ def whatsapp():
 
     
 if __name__ == '__main__':
+    print(json.dumps(get_badges('bl3321')))
     app.run(port=8000)
