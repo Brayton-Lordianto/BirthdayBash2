@@ -1,6 +1,9 @@
 
 from db_generic_util import *
 
+# badges data
+
+
 # get user information for search later -> same as get badges actually
 
 # now working
@@ -9,8 +12,12 @@ def get_badges(screenName):
     return get_items_where(get_condition('devpostScreenName', screenName),table_name='badges')
     
 def insert_badge(items, commit=True):
+    setHeaders(['devpostScreenName','imageURL','date','hackathonLink','issuedBy','message'])
+    setHeaderTypes([STR_TYPE,LINK_TYPE,STR_TYPE,LINK_TYPE,STR_TYPE,STR_TYPE])
+    setTable('badges')
+
     if not type(items) is list: return
-    upsert_many(items, commit=commit)
+    upsert_many(items, commit=commit, table_name='badges')
     
 def cancel(badge_url):
     delete_where(get_condition('imageURL', badge_url))
@@ -27,6 +34,14 @@ def update_badge(img_url, issued_by=None, description=None, date="July 30 2022",
     
     update_item_where(get_condition('imageURL',img_url),field,val)
     
+def initBadges():
+    insert_badge(items=[
+                     {'devpostScreenName':'bl3321','imageURL':'Badge1','date':'30 July 2022','hackathonLink':'https://microsoft-did.devpost.com/','issuedBy':'Hackathon Organizer','message':'Congratulations!'},
+                     {'devpostScreenName':'bl3321','imageURL':'Badge2','date':'30 July 2022','hackathonLink':'https://microsoft-did.devpost.com/','issuedBy':'Hackathon Organizer','message':'Congratulations!'},
+                     {'devpostScreenName':'bl3321','imageURL':'Badge3','date':'30 July 2022','hackathonLink':'https://microsoft-did.devpost.com/','issuedBy':'Hackathon Organizer','message':'Congratulations!'},
+                     {'devpostScreenName':'bl3321','imageURL':'Badge4','date':'30 July 2022','hackathonLink':'https://microsoft-did.devpost.com/','issuedBy':'Hackathon Organizer','message':'Congratulations!'},
+                  ])
+    print(get_badges('bl3321'))
 
 def main():
     drop_table('users')
@@ -53,3 +68,4 @@ def main():
     
 
 # main()
+initBadges()
