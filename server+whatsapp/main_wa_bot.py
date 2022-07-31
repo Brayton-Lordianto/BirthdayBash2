@@ -9,9 +9,11 @@ hackathon = "FreyHacks"
 
 HELP_STRING = '''
 this is a help message.
-Here's another line.
+Send the image of a badge or certificate you wish to give your participants!
+
+
 you are an organizer for the hackathon: *FreyHacks*
-type 'quit'
+type 'quit' to change your organizer account. 
 '''
 
 CANCEL_STRING = '''
