@@ -1,7 +1,5 @@
-from math import fabs
-
 from twilio.twiml.messaging_response import MessagingResponse
-from db import *
+from db_v2 import *
 
 def respond(message):
     response = MessagingResponse()
@@ -18,18 +16,23 @@ def deleteLastImage(url):
     url = ''
     return True
     
-def create_badge(screenName, img_url):
-    return {'devpostScreenName':screenName,'imageURL':img_url,'date':'testdate','hackathonLink':'testlink','issuedBy':'testissue','message':'testmessage'}
+def create_badge(img_url):
+    return {'imageURL':img_url,'date':'July 31 2022','hackathon':'FreyHacks','hackathonLink':'https://freyhacks.devpost.com','issuedBy':'Hackathon Organizer','message':'Congrats!'}
     
 def storeBadges(img_url, screenNames):
     if not img_url: return False
     
     # screenNames is a csv string
-    screenNameArr = screenNames.split(',')
+    # screenNameArr = screenNames.split(',')
+    
+    # screenNames is the array
+    screenNameArr = screenNames
     
     # add into db for each 
-    items = [create_badge(screenName, img_url) for screenName in screenNameArr]
-    print(items,3)
+    items = [create_badge(img_url)]
+    insert_badge_info(items)
+    
+    items = [{'devpostScreenName':screenName, 'imageURL':img_url} for screenName in screenNameArr]    
     insert_badge(items=items)
 
 def updateImageDetails(img_url, issued_by=None, description=None, date="July 30 2022", hackathon_link=""):

@@ -5,7 +5,7 @@ POST: to get json data, use get json to get the json data
 from flask import Flask, request
 from db_v2 import *
 import json
-# from main_wa_bot import *
+from main_wa_bot import *
 
 app = Flask(__name__)
 
@@ -45,7 +45,7 @@ def info():
 # you want twilio to call this post request -> of course this reminds you of using ngrok to make your localhost reachable by twilio
 @app.route('/whatsapp', methods=['POST'])
 def whatsapp():
-    # return whatsapp_img_bot()
+    return whatsapp_img_bot()
     pass
 
     
