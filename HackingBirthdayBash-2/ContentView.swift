@@ -10,14 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Text("hi")
-                .badge(2)
+            Your_Gallery()
+                .badge("new")
                 .tabItem {
                     Label("Your Gallery", systemImage: "photo")
                 }
-            Text("f")
+            Form{
+                TextField("\(Image(systemName: "magnifyingglass")) Search For Hacker Screen Names Here", text: .constant(""))
+            }
                 .tabItem {
-                    Label("Create and Gift Badges", systemImage: "tray.and.arrow.up.fill")
+                    Label("Create and Gift Badges", systemImage: "magnifyingglass.circle")
                 }
             Profile()
                 .badge("!")
