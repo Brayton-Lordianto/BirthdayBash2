@@ -11,30 +11,51 @@ struct Your_Gallery: View {
     private static let gridCount = 3
     @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: gridCount)
     let images: [Image] = [
-        Image(systemName: "person"),
-        Image(systemName: "person.circle"),
-        Image(systemName: "person"),
-        Image(systemName: "person.circle"),
-        Image(systemName: "person"),
-        Image(systemName: "person"),
-        Image(systemName: "person"),
-        Image(systemName: "person")
+        Image("Badge1"),
+        Image("Badge2"),
+        Image("Badge3"),
+        Image("Badge4"),
+        Image("Badge5")
     ]
+    @ObservedObject var gallery: Gallery = Gallery()
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView {
-                    LazyVGrid(columns: gridColumns) {
-                        ForEach(images.indices, id: \.self) { index in
-                            images[index]
-                                .resizable()
-                                .aspectRatio(1.0, contentMode: .fit)
-                                .padding()
+                Text("Click on a badge to learn more!")
+                    .foregroundColor(.gray)
+                    .italic()
+                
+                if true {
+                    ScrollView {
+                        LazyVGrid(columns: gridColumns) {
+                            ForEach(gallery.badges.indices, id: \.self) { index in
+                                NavigationLink {
+                                    //                                BadgeView(image: images[index])
+                                    BadgeView2(badge: gallery.badges[index])
+//                                    Text("")
+                                } label: {
+//                                    images[index]
+                                    AsyncImage(url: gallery.badges[index].imageURL) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+//                                    .resizable()
+                                    .aspectRatio(1.0, contentMode: .fit)
+                                    .padding()
+                                }
+
+
+                            }
                         }
                     }
+                    Link("View Your Badges On Our Website Instead!", destination: URL(string: "https://hacker-hall-of-fame.typedream.app/")!)
+                        .padding()
                 }
             }
-            .navigationTitle("Your Hackathon Journey")
+            .navigationTitle("My Hackathon Journey")
         }
     }
 }

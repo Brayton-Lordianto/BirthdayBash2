@@ -13,6 +13,12 @@
 		41A3BE7028950ED300601822 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A3BE6F28950ED300601822 /* Preview Assets.xcassets */; };
 		41A3BE772895103500601822 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE762895103500601822 /* Profile.swift */; };
 		41A3BE79289512D300601822 /* Your Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE78289512D300601822 /* Your Gallery.swift */; };
+		41A3BE7B28952D9B00601822 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE7A28952D9B00601822 /* BadgeView.swift */; };
+		41A3BE7D2895338800601822 /* printing_function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE7C2895338800601822 /* printing_function.swift */; };
+		41A3BE7F2895510700601822 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE7E2895510700601822 /* ViewModel.swift */; };
+		41A3BE812895511600601822 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE802895511600601822 /* DataModel.swift */; };
+		41A3BE83289552B300601822 /* RequestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE82289552B300601822 /* RequestFunctions.swift */; };
+		41A3BE8528965E0D00601822 /* BadgeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A3BE8428965E0D00601822 /* BadgeView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +29,12 @@
 		41A3BE6F28950ED300601822 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41A3BE762895103500601822 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		41A3BE78289512D300601822 /* Your Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Your Gallery.swift"; sourceTree = "<group>"; };
+		41A3BE7A28952D9B00601822 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		41A3BE7C2895338800601822 /* printing_function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = printing_function.swift; sourceTree = "<group>"; };
+		41A3BE7E2895510700601822 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		41A3BE802895511600601822 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		41A3BE82289552B300601822 /* RequestFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFunctions.swift; sourceTree = "<group>"; };
+		41A3BE8428965E0D00601822 /* BadgeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +68,14 @@
 			isa = PBXGroup;
 			children = (
 				41A3BE6828950ED300601822 /* HackingBirthdayBash_2App.swift */,
-				41A3BE6A28950ED300601822 /* ContentView.swift */,
 				41A3BE78289512D300601822 /* Your Gallery.swift */,
+				41A3BE7A28952D9B00601822 /* BadgeView.swift */,
+				41A3BE8428965E0D00601822 /* BadgeView2.swift */,
+				41A3BE7C2895338800601822 /* printing_function.swift */,
+				41A3BE6A28950ED300601822 /* ContentView.swift */,
+				41A3BE7E2895510700601822 /* ViewModel.swift */,
+				41A3BE802895511600601822 /* DataModel.swift */,
+				41A3BE82289552B300601822 /* RequestFunctions.swift */,
 				41A3BE762895103500601822 /* Profile.swift */,
 				41A3BE6C28950ED300601822 /* Assets.xcassets */,
 				41A3BE6E28950ED300601822 /* Preview Content */,
@@ -144,9 +162,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A3BE79289512D300601822 /* Your Gallery.swift in Sources */,
+				41A3BE7B28952D9B00601822 /* BadgeView.swift in Sources */,
+				41A3BE7D2895338800601822 /* printing_function.swift in Sources */,
+				41A3BE83289552B300601822 /* RequestFunctions.swift in Sources */,
 				41A3BE6B28950ED300601822 /* ContentView.swift in Sources */,
+				41A3BE8528965E0D00601822 /* BadgeView2.swift in Sources */,
 				41A3BE772895103500601822 /* Profile.swift in Sources */,
+				41A3BE812895511600601822 /* DataModel.swift in Sources */,
 				41A3BE6928950ED300601822 /* HackingBirthdayBash_2App.swift in Sources */,
+				41A3BE7F2895510700601822 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
