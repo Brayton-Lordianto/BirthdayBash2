@@ -6,6 +6,7 @@ sslrootcert=%2F$HOME%2F.postgresql%2Froot.crt"
 no space
 '''
 from email import headerregistry
+from operator import getitem
 from tkinter.tix import Tree
 import psycopg2
 from pyparsing import str_type
@@ -50,7 +51,7 @@ def drop_table(table_name=table):
     if not table_name: table_name = table
     with conn.cursor() as cur: 
         cur.execute(
-            f"drop table {table_name}"
+            f"drop table if exists {table_name}"
         )
         
     conn.commit()
@@ -121,12 +122,25 @@ def get_items_where(condition, table_name=table, fields=headers):
         result = cur.fetchall()
         return get_all_as_dict(result, fields)
 
+def update_item_where(condition,field,new_value,table_name=table, commit=True):
+    if not table_name: table_name = table
+    with conn.cursor() as cur:
+        cur.execute(
+            f"UPDATE {table_name} SET {field}='{new_value}' WHERE {condition} "
+        )
+        
+    if commit: conn.commit()
+    else: print(f"UPDATE {table_name} SET {field}='{new_value}' WHERE {condition} ")
+    
+
+
 def main():
     global headers, header_types, table
     headers = ['username','password','email','num']
     header_types = [STR_TYPE,STR_TYPE,STR_TYPE,INT_TYPE]
     table = 'Users'
     
+    drop_table(table)
     create_table('Users', commit=False)
     
     upsert_one(
@@ -146,6 +160,10 @@ def main():
     print(get_items())
     
     print(get_items_where(get_condition('email',"d")))
+    
+    update_item_where(get_condition('username','Steve2'),'email','new email')
+    
+    print(get_items())
     
     drop_table('Users')
     
